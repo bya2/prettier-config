@@ -1,0 +1,33 @@
+{
+  "name": "@bya2/prettier-config-base",
+  "version": "0.1.0",
+  "description": "Sharing a Prettier base configurations.",
+  "license": "MIT",
+  "author": {
+    "name": "Jinhyeong Lee",
+    "email": "byaa1972@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/prettier-config.git"
+  },
+  "files": [
+    "dist",
+    "LICENSE"
+  ],
+  "type": "module",
+  "main": "dist/index.js",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "import": "./dist/index.js"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "scripts": {
+    "build": "powershell -ExecutionPolicy Bypass \"$SCRIPTS\\Build-Source -ConfigFile $CONFIG\\rollup.config.js\""
+  },
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  }
+}
