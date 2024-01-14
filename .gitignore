@@ -1,0 +1,16 @@
+# Package Manager: Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+!.yarn/cache
+.pnp.*
+
+# DIST
+dist
+esm
+
+# ENV
+.env.local
