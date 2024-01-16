@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bya2/rust-to-js.git"
+    "url": "https://github.com/bya2/prettier-config.git"
   },
   "keywords": [
     "prettier",
@@ -22,7 +22,7 @@
   "type": "module",
   "scripts": {
     "build:all": "yarn workspaces foreach --all -pv --exclude @bya2/prettier-config run build",
-    "publish": "yarn workspaces foreach -all -pv --exclude @bya2/prettier-config npm publish --tolerate-republish"
+    "publish": "yarn workspaces foreach --all -pv --exclude @bya2/prettier-config npm publish --tolerate-republish"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
