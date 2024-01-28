@@ -1,0 +1,39 @@
+{
+  "name": "@bya2/tsconfig",
+  "version": "0.1.0",
+  "description": "Sharing a Typescript configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/tsconfig",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "exports": {
+    ".": "./base.json",
+    "./base": "./base.json",
+    "./build": "./build.json",
+    "./commonjs": "./commonjs.json",
+    "./module": "./module.json",
+    "./react-lib": "./react-lib.json"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "typescript": "5.3.3"
+  },
+  "peerDependencies": {
+    "typescript": ">=4.8.0 <6"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}

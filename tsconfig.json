@@ -1,0 +1,5 @@
+{
+  "extends": "@bya2/tsconfig/module",
+  "include": ["packages/**/*.ts"],
+  "exclude": ["node_modules", "packages/**/*.test.ts"],
+}

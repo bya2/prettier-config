@@ -20,7 +20,10 @@
   },
   "devDependencies": {
     "@bya2/prettier-config": "workspace:*",
-    "prettier": "3.2.4"
+    "@bya2/tsconfig": "workspace:*",
+    "@types/node": "20.11.8",
+    "prettier": "3.2.4",
+    "typescript": "5.3.3"
   },
   "packageManager": "pnpm@8.9.0"
 }
