@@ -1,32 +1,26 @@
 {
-  "name": "@bya2/prettier-config",
+  "name": "@bya2/configs",
   "private": true,
-  "description": "Sharing a Prettier configurations.",
-  "license": "MIT",
-  "author": {
-    "name": "Jinhyeong Lee",
-    "email": "byaa1972@gmail.com"
-  },
+  "description": "Sharing configurations.",
+  "homepage": "https://github.com/bya2/configs#readme",
+  "bugs": "https://github.com/bya2/configs/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bya2/prettier-config.git"
+    "url": "https://github.com/bya2/configs.git"
   },
-  "keywords": [
-    "prettier",
-    "prettier-config"
-  ],
-  "packageManager": "yarn@4.0.2",
-  "workspaces": [
-    "packages/**"
-  ],
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
   "type": "module",
   "scripts": {
-    "build:all": "yarn workspaces foreach --all -pv --exclude @bya2/prettier-config run build",
-    "publish": "yarn workspaces foreach --all -pv --exclude @bya2/prettier-config npm publish --tolerate-republish"
+    "build": "pnpm -r --filter=\".\\packages\\**\" run build",
+    "publish": "pnpm -r publish --tag latest"
+  },
+  "prettier": "@bya2/prettier-config",
+  "dependencies": {
+    "prettier-plugin-packagejson": "2.4.9"
   },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "prettier": "3.1.1",
-    "rollup": "^4.9.4"
-  }
+    "@bya2/prettier-config": "workspace:*",
+    "prettier": "3.2.4"
+  },
+  "packageManager": "pnpm@8.9.0"
 }

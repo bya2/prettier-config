@@ -1,6 +1,7 @@
+/** @type {import("prettier").Config} */
 export default {
-  printWidth: 150,
   tabWidth: 2,
+  printWidth: 80,
   useTabs: false,
   semi: true,
   singleQuote: false,
@@ -9,7 +10,7 @@ export default {
   trailingComma: "es5",
   bracketSpacing: true,
   bracketSameLine: false,
-  arrowParens: "avoid",
+  arrowParens: "always",
   proseWrap: "preserve",
   endOfLine: "auto",
   singleAttributePerLine: true,

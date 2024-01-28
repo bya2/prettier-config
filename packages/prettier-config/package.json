@@ -1,0 +1,61 @@
+{
+  "name": "@bya2/prettier-config",
+  "version": "0.1.0",
+  "description": "Sharing a Prettier configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/prettier-config",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "default": "./src/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./defaults": {
+      "default": "./src/common.js",
+      "import": "./dist/common.js",
+      "require": "./dist/common.cjs"
+    },
+    "./import": {
+      "default": "./src/import.js",
+      "import": "./dist/import.js",
+      "require": "./dist/import.cjs"
+    },
+    "./tailwindcss": {
+      "default": "./src/tailwindcss.js",
+      "import": "./dist/tailwindcss.js",
+      "require": "./dist/tailwindcss.cjs"
+    },
+    "./all": {
+      "default": "./src/all.js",
+      "import": "./dist/all.js",
+      "require": "./dist/all.cjs"
+    }
+  },
+  "dependencies": {
+    "prettier-plugin-organize-imports": "3.2.4",
+    "prettier-plugin-packagejson": "2.4.9",
+    "prettier-plugin-tailwindcss": "0.5.11"
+  },
+  "devDependencies": {
+    "prettier": "3.2.4"
+  },
+  "peerDependencies": {
+    "prettier": ">=3 <4"
+  },
+  "peerDependenciesMeta": {
+    "prettier": {
+      "optional": true
+    }
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
+  }
+}

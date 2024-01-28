@@ -1,16 +1,28 @@
-# Package Manager: Yarn
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-!.yarn/cache
-.pnp.*
+# Editor configs
+.vscode/
 
-# DIST
+# Dependency directories
+node_modules
+_node_modules
+
+# Coverage directories
+coverage
+
+# Compiled code
 dist
+lib
 esm
 
-# ENV
-.env.local
+# Logs
+*.log
+*debug.log*
+logs
+
+# Ignore npm and yarn's lockfiles
+package-lock.json
+npm-lockfile.json
+yarn.lock
+
+# ETC
+*.local
+
