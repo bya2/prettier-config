@@ -12,7 +12,11 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r --filter=\".\\packages\\**\" run build",
-    "publish": "pnpm -r publish --tag latest"
+    "publish": "pnpm -r publish --tag latest",
+    "w:eslint": "pnpm --filter=\".\\packages\\eslint-config\"",
+    "w:prettier": "pnpm --filter=\".\\packages\\prettier-config\"",
+    "w:rollup": "pnpm --filter=\".\\packages\\rollup-config\"",
+    "w:ts": "pnpm --filter=\".\\packages\\tsconfig\""
   },
   "prettier": "@bya2/prettier-config",
   "dependencies": {
