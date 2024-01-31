@@ -1,0 +1,41 @@
+{
+  "name": "@bya2/rollup-config",
+  "version": "0.1.0",
+  "description": "Sharing a Rollup configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/rollup-config",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "type": "module",
+  "exports": {
+    ".": "./"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rollup -c rollup.config.ts --configPlugin @rollup/plugin-typescript"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "25.0.7",
+    "@rollup/plugin-json": "6.1.0",
+    "@rollup/plugin-node-resolve": "15.2.3",
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "11.1.6",
+    "rollup-plugin-dts": "6.1.0"
+  },
+  "devDependencies": {
+    "@bya2/tsconfig": "workspace:*",
+    "@types/node": "20.11.8",
+    "rollup": "4.9.6"
+  },
+  "peerDependencies": {
+    "rollup": ">=4 <6"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
+  }
+}
