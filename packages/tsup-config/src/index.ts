@@ -1,6 +1,6 @@
-import type { Options } from "tsup";
+import type { Format, Options } from "tsup";
 
-const envOptions: Record<"common" | "dev" | "prod", Options> = {
+const baseOptions: Record<"common" | "dev" | "prod", Options> = {
   common: {
     splitting: true,
     format: ["cjs", "esm"],
@@ -22,7 +22,9 @@ interface BuildOptions {
   watch?: boolean;
 }
 
-export const build = (input: string, options?: BuildOptions): Options => {
+type Entry = string | string[] | Record<string, string>;
+
+export const build = (entry: Entry, options?: BuildOptions): Options => {
   const active: BuildOptions = {
     dev: false,
     watch: false,
@@ -31,10 +33,37 @@ export const build = (input: string, options?: BuildOptions): Options => {
 
   const envIsDev = active.dev;
 
+  if (typeof entry === "string") {
+    entry = [entry];
+  }
+
   return {
-    entry: [input],
-    ...(envIsDev ? envOptions.dev : envOptions.prod),
-    ...envOptions.common,
+    entry,
+    ...(envIsDev ? baseOptions.dev : baseOptions.prod),
+    ...baseOptions.common,
     watch: active.watch,
   };
+};
+
+export const buildToFormat = (
+  entry: Entry,
+  format: Format,
+  options?: BuildOptions
+): Options => {
+  return {
+    ...build(entry, options),
+    format,
+  };
+};
+
+export const buildToCJS = (entry: Entry, options?: BuildOptions) => {
+  return buildToFormat(entry, "cjs", options);
+};
+
+export const buildToESM = (entry: Entry, options?: BuildOptions) => {
+  return buildToFormat(entry, "esm", options);
+};
+
+export const buildToIIFE = (entry: Entry, options?: BuildOptions) => {
+  return buildToFormat(entry, "iife", options);
 };
