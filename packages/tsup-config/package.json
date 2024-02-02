@@ -1,0 +1,42 @@
+{
+  "name": "@bya2/tsup-config",
+  "version": "0.1.0",
+  "description": "Sharing a tsup configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/tsup-config",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@bya2/tsconfig": "workspace:*",
+    "tsup": "8.0.1",
+    "typescript": "5.3.3"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "peerDependencies": {
+    "tsup": "8.0.1",
+    "typescript": "5.3.3"
+  }
+}
