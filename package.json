@@ -16,7 +16,8 @@
     "w:eslint": "pnpm --filter=\".\\packages\\eslint-config\"",
     "w:prettier": "pnpm --filter=\".\\packages\\prettier-config\"",
     "w:rollup": "pnpm --filter=\".\\packages\\rollup-config\"",
-    "w:ts": "pnpm --filter=\".\\packages\\tsconfig\""
+    "w:ts": "pnpm --filter=\".\\packages\\tsconfig\"",
+    "w:tsup": "pnpm --filter=\".\\packages\\tsup-config\""
   },
   "prettier": "@bya2/prettier-config",
   "dependencies": {
