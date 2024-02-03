@@ -25,7 +25,7 @@ export const getOutputExt = (
   module: "commonjs" | "module",
   format: ModuleFormat
 ): string => {
-  if (isES(format)) return module === "module" ? ".js" : ".cjs";
-  if (isCJS(format)) return module === "commonjs" ? ".js" : ".mjs";
+  if (isES(format)) return module === "module" ? ".js" : ".mjs";
+  if (isCJS(format)) return module === "commonjs" ? ".js" : ".cjs";
   throw new Error();
 };
