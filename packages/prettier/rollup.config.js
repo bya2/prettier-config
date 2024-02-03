@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { generateJS } from "@bya2/rollup-config";
+import { generateJS } from "@bya2/configs.rollup";
 
 const resolveSrc = (...paths) => path.resolve("src", ...paths);
 

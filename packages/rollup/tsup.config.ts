@@ -1,4 +1,4 @@
-import { buildToCJS, buildToESM } from "@bya2/tsup-config";
+import { buildToCJS, buildToESM } from "@bya2/configs.tsup";
 
 export default [
   buildToCJS({ index: "src/commonjs.ts" }),

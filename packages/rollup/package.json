@@ -1,8 +1,8 @@
 {
-  "name": "@bya2/rollup-config",
+  "name": "@bya2/configs.rollup",
   "version": "0.1.0",
   "description": "Sharing a Rollup configurations.",
-  "homepage": "https://github.com/bya2/configs/packages/rollup-config",
+  "homepage": "https://github.com/bya2/configs/packages/rollup",
   "bugs": "https://github.com/bya2/configs/issues",
   "repository": {
     "type": "git",
@@ -36,8 +36,8 @@
     "rollup-plugin-dts": "6.1.0"
   },
   "devDependencies": {
-    "@bya2/tsconfig": "workspace:*",
-    "@bya2/tsup-config": "workspace:*",
+    "@bya2/configs.typescript": "workspace:*",
+    "@bya2/configs.tsup": "workspace:*",
     "@types/node": "20.11.8",
     "rollup": "4.9.6",
     "tslib": "2.6.2",

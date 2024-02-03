@@ -12,17 +12,16 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r --filter=\".\\packages\\**\" run build",
-    "publish": "pnpm -r publish --tag latest",
-    "w:eslint": "pnpm --filter=\".\\packages\\eslint-config\"",
-    "w:prettier": "pnpm --filter=\".\\packages\\prettier-config\"",
-    "w:rollup": "pnpm --filter=\".\\packages\\rollup-config\"",
-    "w:ts": "pnpm --filter=\".\\packages\\tsconfig\"",
-    "w:tsup": "pnpm --filter=\".\\packages\\tsup-config\""
+    "configs.prettier": "pnpm --filter=\".\\packages\\prettier\"",
+    "configs.rollup": "pnpm --filter=\".\\packages\\rollup\"",
+    "configs.ts": "pnpm --filter=\".\\packages\\typescript\"",
+    "configs.tsup": "pnpm --filter=\".\\packages\\tsup\"",
+    "publish": "pnpm -r publish --tag latest"
   },
-  "prettier": "@bya2/prettier-config/plugin.packagejson",
+  "prettier": "@bya2/configs.prettier/plugin.packagejson",
   "devDependencies": {
-    "@bya2/prettier-config": "workspace:*",
-    "@bya2/tsconfig": "workspace:*",
+    "@bya2/configs.prettier": "workspace:*",
+    "@bya2/configs.typescript": "workspace:*",
     "@types/node": "20.11.8",
     "prettier": "3.2.4",
     "typescript": "5.3.3"

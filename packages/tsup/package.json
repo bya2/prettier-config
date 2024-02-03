@@ -1,8 +1,8 @@
 {
-  "name": "@bya2/tsup-config",
+  "name": "@bya2/configs.tsup",
   "version": "0.1.0",
   "description": "Sharing a tsup configurations.",
-  "homepage": "https://github.com/bya2/configs/packages/tsup-config",
+  "homepage": "https://github.com/bya2/configs/packages/tsup",
   "bugs": "https://github.com/bya2/configs/issues",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@bya2/tsconfig": "workspace:*",
+    "@bya2/configs.typescript": "workspace:*",
     "tsup": "8.0.1",
     "typescript": "5.3.3"
   },

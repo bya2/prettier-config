@@ -1,8 +1,8 @@
 {
-  "name": "@bya2/tsconfig",
+  "name": "@bya2/configs.typescript",
   "version": "0.1.0",
   "description": "Sharing a Typescript configurations.",
-  "homepage": "https://github.com/bya2/configs/packages/tsconfig",
+  "homepage": "https://github.com/bya2/configs/packages/typescript",
   "bugs": "https://github.com/bya2/configs/issues",
   "repository": {
     "type": "git",
