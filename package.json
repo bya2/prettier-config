@@ -19,10 +19,7 @@
     "w:ts": "pnpm --filter=\".\\packages\\tsconfig\"",
     "w:tsup": "pnpm --filter=\".\\packages\\tsup-config\""
   },
-  "prettier": "@bya2/prettier-config",
-  "dependencies": {
-    "prettier-plugin-packagejson": "2.4.9"
-  },
+  "prettier": "@bya2/prettier-config/plugin.packagejson",
   "devDependencies": {
     "@bya2/prettier-config": "workspace:*",
     "@bya2/tsconfig": "workspace:*",
