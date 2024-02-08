@@ -1,0 +1,35 @@
+{
+  "name": "@bya2/configs.jest",
+  "version": "0.1.0",
+  "description": "Sharing a Jest configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/jest",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "type": "module",
+  "exports": {
+    ".": "./"
+  },
+  "scripts": {
+    "build": "",
+    "test": ""
+  },
+  "devDependencies": {
+    "jest": "29.7.0"
+  },
+  "peerDependencies": {
+    "jest": ">=29"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "jest-config": "29.7.0",
+    "ts-jest": "29.1.2"
+  }
+}
