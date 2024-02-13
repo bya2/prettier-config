@@ -12,6 +12,7 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r --filter=\".\\packages\\**\" run build",
+    "configs.esbuild": "pnpm --filter=\".\\packages\\esbuild\"",
     "configs.eslint": "pnpm --filter=\".\\packages\\eslint\"",
     "configs.jest": "pnpm --filter=\".\\packages\\jest\"",
     "configs.prettier": "pnpm --filter=\".\\packages\\prettier\"",
