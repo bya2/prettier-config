@@ -1,0 +1,31 @@
+{
+  "name": "@bya2/configs.esbuild",
+  "version": "0.1.0",
+  "description": "Sharing a esbuild configurations.",
+  "homepage": "https://github.com/bya2/configs/packages/esbuild",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "type": "module",
+  "exports": {
+    ".": "./"
+  },
+  "scripts": {
+    "build": "",
+    "test": ""
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
+  },
+  "devDependencies": {
+    "esbuild": "0.20.0"
+  },
+  "peerDependencies": {
+    "esbuild": "0.20.0"
+  }
+}
