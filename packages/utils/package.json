@@ -1,0 +1,13 @@
+{
+  "name": "@repo/utils",
+  "bugs": "https://github.com/bya2/configs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bya2/configs.git"
+  },
+  "license": "ISC",
+  "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
+  "exports": {
+    ".": "./index.ts"
+  }
+}
