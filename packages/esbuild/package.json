@@ -18,14 +18,17 @@
     "build": "",
     "test": ""
   },
-  "packageManager": "pnpm@8.9.0",
-  "engines": {
-    "node": ">=16"
+  "dependencies": {
+    "@repo/utils": "workspace:*"
   },
   "devDependencies": {
     "esbuild": "0.20.0"
   },
   "peerDependencies": {
     "esbuild": "0.20.0"
+  },
+  "packageManager": "pnpm@8.9.0",
+  "engines": {
+    "node": ">=16"
   }
 }
