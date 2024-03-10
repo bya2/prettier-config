@@ -14,6 +14,7 @@ interface Options {
 }
 
 interface ErrorOptions {
+  message?: string;
   cause?: unknown;
   code?: number;
 }

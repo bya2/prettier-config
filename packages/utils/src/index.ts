@@ -1,34 +1,77 @@
 import path from "path";
 import * as fs from "fs";
-import { extensionMap, formatMap } from "./maps";
-import type { ErrorOptions, Extension, Format, Module } from "./types";
+import { moduleMap, formatMap, extensionMap } from "./maps";
+import type {
+  Options,
+  ErrorOptions,
+  Extension,
+  Format,
+  Module,
+  Platform,
+} from "./types";
 
+/**
+ * Resolve from current working directory.
+ * @param paths
+ */
 export const resolve = (...paths: string[]): string => {
   return path.resolve(process.cwd(), ...paths);
 };
 
-export const upcast = <T>(expr: T): T => {
-  return expr;
-};
+/**
+ * Make a upcast.
+ * @param implementation
+ */
+export const upcast = <T>(implementation: T): T => implementation;
 
-export const valueOrThrow = <T>(
-  value: T,
-  errMsg?: string,
-  options?: ErrorOptions
-): NonNullable<T> => {
-  if (value) {
-    const err = new Error(
-      errMsg,
-      options?.cause ? { cause: options.cause } : undefined
-    );
-
-    if (options && "code" in options) (err as any).code = options.code;
-
+/**
+ * Returns non-nullable value.
+ * @param value
+ * @param options error options
+ */
+export const get = <T>(value: T, options?: ErrorOptions): NonNullable<T> => {
+  if (value === undefined || value === null) {
+    const err = new Error(options?.message || "", { cause: options?.cause });
+    if (options?.code) (err as any).code = options.code;
     throw err;
   }
 
   return value as NonNullable<T>;
 };
+
+// #### Options ####
+
+/**
+ * Returns mapped format type.
+ * @param input
+ */
+export const format = (input: string): Format => {
+  return get(formatMap[input]);
+};
+
+/**
+ * Returns javascript extension with source module type(["type"] field of package.json) and output platform.
+ * @param options
+ */
+export const extension = (
+  options: Pick<Options, "module" | "platform">
+): Extension => {
+  return get(
+    extensionMap[get(moduleMap[options.module])][format(options.platform)]
+  );
+};
+
+export const outFile = ({
+  entry,
+  module,
+  platform,
+}: Pick<Options, "entry" | "module" | "platform">) => {
+  const { name } = path.parse(entry);
+  const ext = extension({ module, platform });
+  return resolve("dist", `${name}${ext}`);
+};
+
+export const splitting = () => {};
 
 export const isJSExt = (value: string) => {
   return value[0] === "." && [".js", ".cjs", ".mjs"].some((e) => value === e);
