@@ -29,7 +29,7 @@ export const upcast = <T>(implementation: T): T => implementation;
  * @param value
  * @param options error options
  */
-export const get = <T>(value: T, options?: ErrorOptions): NonNullable<T> => {
+export const some = <T>(value: T, options?: ErrorOptions): NonNullable<T> => {
   if (value === undefined || value === null) {
     const err = new Error(options?.message || "", { cause: options?.cause });
     if (options?.code) (err as any).code = options.code;
@@ -43,39 +43,39 @@ export const get = <T>(value: T, options?: ErrorOptions): NonNullable<T> => {
 
 /**
  * Returns mapped format type.
- * @param input
+ * @param value
  */
-export const format = (input: string): Format => {
-  return get(formatMap[input]);
-};
+export function format(value: string): Format {
+  return some(formatMap[value]);
+}
 
 /**
- * Returns javascript extension with source module type(["type"] field of package.json) and output platform.
- * @param options
+ * Returns javascript extension with source module(["type"] field of package.json file) and output platform.
  */
-export const extension = (
-  options: Pick<Options, "module" | "platform">
-): Extension => {
-  return get(
-    extensionMap[get(moduleMap[options.module])][format(options.platform)]
-  );
-};
+export function extension({ module, platform }: Options): Extension {
+  return module && platform
+    ? some(extensionMap[module][format(platform)])
+    : ".js";
+}
 
-export const outFile = ({
-  entry,
-  module,
-  platform,
-}: Pick<Options, "entry" | "module" | "platform">) => {
+/**
+ * Returns output filename.
+ */
+export function outFile({ entry, module, platform }: Options) {
+  if (!entry) throw new Error("No entry field of options");
+
   const { name } = path.parse(entry);
   const ext = extension({ module, platform });
   return resolve("dist", `${name}${ext}`);
-};
+}
 
-export const splitting = () => {};
-
-export const isJSExt = (value: string) => {
+/**
+ * Returns whether value is a JS file extension
+ * @param value
+ */
+export function isJSExt(value: string) {
   return value[0] === "." && [".js", ".cjs", ".mjs"].some((e) => value === e);
-};
+}
 
 export const getJSFilePath = (
   dirname: string,

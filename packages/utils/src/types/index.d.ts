@@ -6,11 +6,11 @@ export type Format = "cjs" | "esm" | "iife";
 export type Extension = ".js" | ".cjs" | ".mjs";
 
 interface Options {
-  entry: string;
-  platform: Platform;
-  module: Module;
-  mode: Mode;
-  format: Format;
+  entry?: string;
+  platform?: Platform;
+  module?: Module;
+  mode?: Mode;
+  format?: Format;
 }
 
 interface ErrorOptions {
