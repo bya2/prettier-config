@@ -1,5 +1,5 @@
 {
-  "extends": "@bya2/configs.typescript/module",
+  "extends": "@bya2/typescript.config/module",
   "include": ["packages/**/*.ts"],
   "exclude": ["node_modules", "packages/**/*.test.ts", "dist"],
 }
