@@ -31,3 +31,11 @@ export type Entry =
   | string[]
   | Record<string, string>
   | { in: string; out: string }[];
+
+export interface Props {
+  entry: string;
+  platform: Platform;
+  module: Module;
+  mode: Mode;
+  format: Format;
+}

@@ -1,20 +1,19 @@
-// T
 export type Platform = "browser" | "node" | "neutral";
 export type Module = "commonjs" | "module";
 export type Mode = "production" | "developement" | "test";
 export type Format = "cjs" | "esm" | "iife";
 export type Extension = ".js" | ".cjs" | ".mjs";
 
-interface Options {
+export interface Options {
   entry?: string;
-  platform?: Platform;
-  module?: Module;
-  mode?: Mode;
   format?: Format;
+  mode?: Mode;
+  module?: Module;
+  platform?: Platform;
 }
 
-interface ErrorOptions {
-  message?: string;
+export interface ErrorOptions {
   cause?: unknown;
   code?: number;
+  message?: string;
 }

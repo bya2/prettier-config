@@ -1,6 +1,6 @@
 {
-  "name": "@bya2/configs.esbuild",
-  "version": "0.1.0",
+  "name": "@bya2/esbulid.config",
+  "version": "1.0.0",
   "description": "Sharing a esbuild configurations.",
   "homepage": "https://github.com/bya2/configs/packages/esbuild",
   "bugs": "https://github.com/bya2/configs/issues",

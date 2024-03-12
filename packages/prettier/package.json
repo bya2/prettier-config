@@ -1,5 +1,5 @@
 {
-  "name": "@bya2/configs.prettier",
+  "name": "@bya2/prettier.config",
   "version": "0.1.0",
   "description": "Sharing a Prettier configurations.",
   "homepage": "https://github.com/bya2/configs/packages/prettier",
@@ -24,7 +24,7 @@
     "build": "rollup -c"
   },
   "devDependencies": {
-    "@bya2/configs.rollup": "workspace:*",
+    "@bya2/rollup.config": "workspace:*",
     "prettier": "3.2.4",
     "prettier-plugin-organize-imports": "3.2.4",
     "prettier-plugin-packagejson": "2.4.9",

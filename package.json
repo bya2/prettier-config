@@ -12,19 +12,19 @@
   "type": "module",
   "scripts": {
     "build": "pnpm -r --filter=\".\\packages\\**\" run build",
-    "configs.esbuild": "pnpm --filter=\".\\packages\\esbuild\"",
-    "configs.eslint": "pnpm --filter=\".\\packages\\eslint\"",
-    "configs.jest": "pnpm --filter=\".\\packages\\jest\"",
-    "configs.prettier": "pnpm --filter=\".\\packages\\prettier\"",
-    "configs.rollup": "pnpm --filter=\".\\packages\\rollup\"",
-    "configs.ts": "pnpm --filter=\".\\packages\\typescript\"",
-    "configs.tsup": "pnpm --filter=\".\\packages\\tsup\"",
-    "publish": "pnpm -r publish --tag latest"
+    "esbuild": "pnpm --filter=\".\\packages\\esbuild\"",
+    "eslint": "pnpm --filter=\".\\packages\\eslint\"",
+    "jest": "pnpm --filter=\".\\packages\\jest\"",
+    "prettier": "pnpm --filter=\".\\packages\\prettier\"",
+    "publish": "pnpm -r publish --tag latest",
+    "rollup": "pnpm --filter=\".\\packages\\rollup\"",
+    "ts": "pnpm --filter=\".\\packages\\typescript\"",
+    "tsup": "pnpm --filter=\".\\packages\\tsup\""
   },
   "prettier": "@bya2/configs.prettier/plugin.packagejson",
   "devDependencies": {
-    "@bya2/configs.prettier": "workspace:*",
-    "@bya2/configs.typescript": "workspace:*",
+    "@bya2/prettier.config": "workspace:*",
+    "@bya2/typescript.config": "workspace:*",
     "@types/node": "20.11.8",
     "prettier": "3.2.4",
     "typescript": "5.3.3"

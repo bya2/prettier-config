@@ -1,5 +1,5 @@
 {
-  "name": "@bya2/configs.tsup",
+  "name": "@bya2/tsup.config",
   "version": "0.1.0",
   "description": "Sharing a tsup configurations.",
   "homepage": "https://github.com/bya2/configs/packages/tsup",
@@ -27,16 +27,16 @@
     "build": "tsup"
   },
   "devDependencies": {
-    "@bya2/configs.typescript": "workspace:*",
+    "@bya2/typescript.config": "workspace:*",
+    "tsup": "8.0.1",
+    "typescript": "5.3.3"
+  },
+  "peerDependencies": {
     "tsup": "8.0.1",
     "typescript": "5.3.3"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {
     "node": ">=16"
-  },
-  "peerDependencies": {
-    "tsup": "8.0.1",
-    "typescript": "5.3.3"
   }
 }
