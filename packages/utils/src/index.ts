@@ -93,17 +93,17 @@ export const ensure = <T>(value: T, errOpts?: ErrorOptions): NonNullable<T> => {
  * 매핑된 포맷 값을 반환.
  * @param value
  */
-export function getFormat(value: string): Format {
+export function mapFormat(value: string): Format {
   return ensure(formatMap[value]);
 }
 
 /**
- * 소스 모듈 타입(package.json의 type 필드)과 출력 플랫폼을 통해 적절한 JS 확장자를 반환.
+ * 소스 모듈 타입(package.json의 type 필드)과 출력 플랫폼을 통해 매핑하여 적절한 JS 확장자를 반환.
  */
-export function getExtension({ module, platform }: Options): Extension {
+export function mapExtension({ module, platform }: Options): Extension {
   if (module && platform) {
     module = ensure(moduleMap[module]);
-    const format = getFormat(platform);
+    const format = mapFormat(platform);
     return ensure(extensionMap[module][format]);
   } else {
     return ".js";
@@ -125,7 +125,7 @@ export function getOutFile({ entry, module, platform }: Options) {
   if (typeof entry === "undefined") entry = "src/index.js";
 
   const { name } = path.parse(entry);
-  const ext = getExtension({ module, platform });
+  const ext = mapExtension({ module, platform });
 
   console.assert(
     !isJSExt(ext),
