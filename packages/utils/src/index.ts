@@ -90,6 +90,20 @@ export const ensure = <T>(value: T, errOpts?: ErrorOptions): NonNullable<T> => {
 };
 
 /**
+ * 조건을 만족하면 입력한 값을 반환하고, 아니면 ["undefined"]를 반환.
+ * @param condition T | T[]
+ * @param value
+ */
+export function filter<T>(condition: any, value: T | (() => T)): T | undefined {
+  if (!Array.isArray(condition)) condition = [condition];
+  return condition.every(Boolean)
+    ? value instanceof Function
+      ? value()
+      : value
+    : undefined;
+}
+
+/**
  * 매핑된 포맷 값을 반환.
  * @param value
  */
