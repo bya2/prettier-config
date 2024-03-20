@@ -8,5 +8,8 @@
   },
   "license": "ISC",
   "author": "Jinhyeong Lee <byaa1972@gmail.com> (https://github.com/bya2)",
-  "main": "src/index.ts"
+  "exports": {
+    ".": "./src/index.ts",
+    "./constants": "./src/constants.ts"
+  }
 }
