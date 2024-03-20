@@ -94,13 +94,28 @@ export const ensure = <T>(value: T, errOpts?: ErrorOptions): NonNullable<T> => {
  * @param condition T | T[]
  * @param value
  */
-export function filter<T>(condition: any, value: T | (() => T)): T | undefined {
-  if (!Array.isArray(condition)) condition = [condition];
-  return condition.every(Boolean)
-    ? value instanceof Function
-      ? value()
-      : value
+export function place<T>(
+  value: T,
+  condition: number | boolean | ((value: T) => unknown)
+): T | undefined {
+  return (typeof condition === "function" ? condition(value) : condition)
+    ? value
     : undefined;
+}
+
+/**
+ * 매개변수인 객체에서 ["undefined"]나 ["null"] 값인 속성을 필터링해서 반환.
+ * @param obj
+ */
+export function filter<T extends object>(obj: T): T {
+  return Object.entries(obj)
+    .filter(([_, value]) => {
+      return value !== undefined || value !== null;
+    })
+    .reduce((map, [key, value]) => {
+      map[key] = value;
+      return map;
+    }, {} as any) as T;
 }
 
 /**
