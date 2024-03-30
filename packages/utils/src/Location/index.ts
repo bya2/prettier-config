@@ -25,15 +25,15 @@ class Location {
     return path.dirname(this.inner);
   }
 
-  get name() {
-    return path.parse(this.inner).name;
-  }
-
-  get base() {
+  get basename() {
     return path.basename(this.inner);
   }
 
-  get ext() {
+  get filename() {
+    return path.parse(this.inner).name;
+  }
+
+  get extname() {
     return path.extname(this.inner);
   }
 
@@ -53,7 +53,7 @@ class Location {
    * 상위 디렉터리로 이동
    */
   up() {
-    this.inner = this[PARENT];
+    this.inner = path.dirname(this.inner);
     return this;
   }
 
