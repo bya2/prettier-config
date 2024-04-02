@@ -27,11 +27,20 @@ export const TEST = "test";
 export const DEFAULT_EXTERNAL = ["*.png", "/images/*", "/assets/*"];
 
 // 패턴
-export const DEFAULT_ASSET_NAMES = "assets/[name]-[hash]"; // [dir] [name] [hash] [ext]
-export const DEFAULT_CHUNK_NAMES = "chunks/[name]-[hash]"; // [name] [hash] [ext]
-export const DEFAULT_ENTRY_NAMES = "[dir]/[name]-[hash]"; // // [dir] [name] [hash] [ext]
+export const DEFAULT_ASSET_NAMES = "assets/[name]-[hash]";
+export const DEFAULT_CHUNK_NAMES = "chunks/[name]-[hash]";
+export const DEFAULT_ENTRY_NAMES = "[dir]/[name]-[hash]";
 
 // 경로
 export const DEFAULT_OUTBASE = "src";
 export const DEFAULT_OUTDIR = "dist";
 export const DEFAULT_ENTRY = "src/index.ts";
+
+// 메세지
+export const FAIL_MEMOIZATION =
+  "메모이제이션 실패: 파일 데이터의 키가 없거나 해당 키에 대해 메모이제이션된 데이터가 존재하지 않음.";
+
+// 경로 상수
+export const ROOT = "/";
+export const CURR = ".";
+export const PARENT = "..";
