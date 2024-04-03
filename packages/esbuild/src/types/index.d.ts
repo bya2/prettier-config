@@ -20,12 +20,6 @@ export type Result<T> = Promise<BuildResult<T>>;
 export type Context<T> = Promise<BuildContext<T>>;
 export type TResult<T> = Promise<TransformResult<T>>;
 
-export type Platform = "browser" | "node" | "neutral";
-export type Module = "commonjs" | "module";
-export type Mode = "production" | "developement" | "test";
-export type Format = "cjs" | "esm" | "iife";
-export type Extension = ".js" | ".cjs" | ".mjs";
-
 export type Entry =
   | string
   | string[]
@@ -33,9 +27,14 @@ export type Entry =
   | { in: string; out: string }[];
 
 export interface Props {
-  entry: string;
-  platform: Platform;
-  module: Module;
-  mode: Mode;
-  format: Format;
+  input?: string | string[];
+  format?: Format;
+  mode?: Mode;
+  module?: Module;
+  platform?: Platform;
+  ts?: boolean;
+  watch?: boolean;
+  react?: boolean;
+  jsx?: boolean;
+  splitting?: boolean;
 }
