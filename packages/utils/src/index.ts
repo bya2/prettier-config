@@ -1,7 +1,73 @@
-import path from "path";
 import * as fs from "fs";
+import path from "path";
 import { formatMap, extensionMap, moduleMap } from "./maps";
 import type { Options, ErrorOptions, Extension, Format } from "./types";
+
+const encoding = "utf8";
+
+export function parseJSONC(data: any) {
+  try {
+    // return new Function("return" + strip(data).trim());
+    return new Function("return" + "".trim());
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * 캐싱 없이 모듈 데이터를 불러와 반환합니다.
+ * @param moduleId module id or file path
+ */
+export function requireUncached(moduleId: string) {
+  const filename = require.resolve(moduleId);
+  require.cache[filename] && delete require.cache[filename];
+  return require(moduleId);
+}
+
+/**
+ * 하나의 디렉터리에서 ["package.json"] 파일의 데이터를 반환합니다.
+ * @param cwd
+ */
+export async function loadPkg(cwd: string = process.cwd()) {
+  if (cwd === "node_modules") {
+    throw new Error("[loadPkg] `node_modules` is an invalid directory.");
+  }
+
+  const fp = path.resolve(cwd, "package.json");
+  if (await exists(fp)) {
+    return requireUncached(fp);
+  } else {
+    throw new Error("[loadPkg] No `package.json` file in the directory.");
+  }
+}
+
+/**
+ * 비동기적 메모이제이션 및 반환.
+ * @param fn
+ */
+export function memoize<T>(fn: (key: any, ...args: any[]) => Promise<T>) {
+  const map = new Map<any, T>();
+  return async (key: any, ...args: any[]): Promise<T> => {
+    if (!map.has(key)) {
+      map.set(key, await fn(key, ...args));
+    }
+    return map.get(key)!;
+  };
+}
+
+/**
+ * 동기적 메모이제이션 및 반환.
+ * @param fn
+ */
+export function memoizeSync<T>(fn: (key: any, ...args: any[]) => T) {
+  const map = new Map<any, T>();
+  return (key: any, ...args: any[]): T => {
+    if (!map.has(key)) {
+      map.set(key, fn(key, ...args));
+    }
+    return map.get(key)!;
+  };
+}
 
 /**
  * 비동기적으로 파일을 읽고 내용을 Promise로 반환.
@@ -9,12 +75,7 @@ import type { Options, ErrorOptions, Extension, Format } from "./types";
  * @param fp file path
  */
 export const readFile = (fp: string): Promise<string> => {
-  return new Promise((resolve, rejects) => {
-    fs.readFile(fp, { encoding: "utf8" }, (err, data) => {
-      if (err) rejects(err);
-      else resolve(data);
-    });
-  });
+  return fs.promises.readFile(fp, { encoding });
 };
 
 /**
@@ -23,14 +84,14 @@ export const readFile = (fp: string): Promise<string> => {
  * @param fp file path
  */
 export const readFileSync = (fp: string): string => {
-  return fs.readFileSync(fp, { encoding: "utf8" });
+  return fs.readFileSync(fp, { encoding });
 };
 
 /**
  * 파일이 존재하는지 확인하고 Promise로 반환.
  * @param fp file path
  */
-export const existsFile = (fp: string): Promise<boolean> => {
+export const exists = (fp: string): Promise<boolean> => {
   return new Promise((resolve) => {
     fs.access(fp, (err) => {
       resolve(!err);
@@ -41,7 +102,7 @@ export const existsFile = (fp: string): Promise<boolean> => {
 /**
  * 동기식으로 파일이 존재하는지 확인.
  */
-export const existsFileSync = fs.existsSync;
+export const existsSync = fs.existsSync;
 
 /**
  * 입력된 값이 객체인지 확인.
@@ -64,18 +125,19 @@ export const resolve = (...paths: string[]): string => {
 };
 
 /**
- * 입력된 값을 업캐스팅하고 반환.
+ * 업캐스팅을 해서 그대로 반환합니다.
  * @param expr
  */
 export const upcast = <T>(expr: T): T => expr;
 
 /**
- * non-nullable 값을 반환.
- * @param value
+ * 입력된 값의 non-nullable 값을 반환합니다.
+ * 입력된 값이 `undefined` 혹은 `null`이면 에러를 생성해서 발생시킵니다.
+ * @param expr
  * @param errOpts error options
  */
-export const ensure = <T>(value: T, errOpts?: ErrorOptions): NonNullable<T> => {
-  if (value === undefined || value === null) {
+export const ensure = <T>(expr: T, errOpts?: ErrorOptions): NonNullable<T> => {
+  if (expr === undefined || expr === null) {
     const err = new Error(
       `Invalid value: ${errOpts?.message || "Value must be defined and not null."}`,
       {
@@ -86,7 +148,7 @@ export const ensure = <T>(value: T, errOpts?: ErrorOptions): NonNullable<T> => {
     throw err;
   }
 
-  return value as NonNullable<T>;
+  return expr!;
 };
 
 /**
