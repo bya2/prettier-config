@@ -19,7 +19,8 @@
     "publish": "pnpm -r publish --tag latest",
     "rollup": "pnpm --filter=\".\\packages\\rollup\"",
     "ts": "pnpm --filter=\".\\packages\\typescript\"",
-    "tsup": "pnpm --filter=\".\\packages\\tsup\""
+    "tsup": "pnpm --filter=\".\\packages\\tsup\"",
+    "utils": "pnpm --filter=\".\\packages\\utils\""
   },
   "prettier": "@bya2/prettier.config/plugin.packagejson",
   "devDependencies": {
