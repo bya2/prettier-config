@@ -1,3 +1,5 @@
+export type Predicate = (...args: any[]) => unknown;
+
 export type Platform = "browser" | "node" | "neutral";
 export type Module = "commonjs" | "module";
 export type Mode = "production" | "developement" | "test";
@@ -17,3 +19,6 @@ export interface ErrorOptions {
   code?: number;
   message?: string;
 }
+
+// Location
+export type Sep = "/" | "\\";
